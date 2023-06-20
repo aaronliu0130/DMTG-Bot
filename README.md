@@ -29,3 +29,6 @@ node index.js
 
 I was too lazy to generate a package.json.<br>
 Make it yourself.
+<br>
+<br>
+note: there is bot status config in events/ready.js if you want to customize that
