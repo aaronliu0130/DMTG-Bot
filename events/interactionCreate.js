@@ -58,12 +58,12 @@ module.exports = async (client, interaction, db) => {
     json[game] = 2;
     updt();
 
-    global.thing.channel.send({
-      content: `<@&944031328104480771>`,
+    global.thing.channel.send(`<@&944031328104480771>`)
+    global.thing.followUp({
       embeds: [
         new EmbedBuilder()
         .setTitle('Trending Game Found!')
-        .setDescription(`The trending game is ${game}!\n\n**Report:**\n${buildStatus()}`)
+        .setDescription(`The trending game is ${game} (found by ${interaction.user})!\n\n**Report:**\n${buildStatus()}`)
         .setFooter({
           text: 'finally found it lol'
         })
@@ -148,6 +148,13 @@ module.exports = async (client, interaction, db) => {
       ephemeral: true
     })
   } else if (interaction.customId === 'reset') {
+    if (!interaction.member.roles.cache.find(r => r.id === '944031328104480771')) return interaction.reply({
+      content: `**No Permission**\nThis option is resticted to Trend Masters only.\nThe panel will automatically reload. This button is to reset all data for the day.`,
+      ephemeral: true
+    });
+
+    let old = buildStatus();
+
     Object.keys(json).forEach(a => json[a] = 1);
     updt();
 
@@ -195,7 +202,7 @@ module.exports = async (client, interaction, db) => {
     global.thing.followUp({
       embeds: [
         new EmbedBuilder()
-        .setDescription(`${interaction.user.tag} has reset the panel.`)
+        .setDescription(`${interaction.user.tag} has reset the panel.\n\n**Previously:**\n${old}`)
       ]
     })
 
