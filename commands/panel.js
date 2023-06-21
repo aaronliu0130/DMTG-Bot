@@ -1,8 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require('discord.js'); // idc this is messy
-const { writeFileSync } = require('fs');
-
 const json = require('../trending.json');
-const updt = () => writeFileSync('./trending.json', JSON.stringify(json));
 
 const c = `<:checked:1120528037788786758>`;
 const u = `<:unchecked:1120528038929637406>`;
