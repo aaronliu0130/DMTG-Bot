@@ -14,6 +14,7 @@ module.exports = {
         '993956817350688830',
         '1049495201682571334',
         '1053101084190703766',
+        '932029269318721576', // chat-here for outsourcing
         '1055625743448682557' // #spam channel in my server
     ].indexOf(interaction.channel.id) < 0) return interaction.reply({
       ephemeral: true,
@@ -28,7 +29,8 @@ module.exports = {
                 .setFooter({
                     text: 'thonk#0001 is cool | dm me for questions'
                 })
-        ]
+        ],
+        ephemeral: true
     })
   }
 }
