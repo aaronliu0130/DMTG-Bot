@@ -25,10 +25,19 @@ module.exports = {
         '993956817350688830',
         '1049495201682571334',
         '1053101084190703766',
+        '932029269318721576', // chat-here for outsourcing
         '1055625743448682557' // #spam channel in my server
       ].indexOf(interaction.channel.id) < 0) return interaction.reply({
       ephemeral: true,
       embeds: [new discord.EmbedBuilder().setDescription(`**This command is not for this channel.**`)]
+    });
+
+    const est = newDate(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}));
+    const canRunPanel = est.getHours() >= 19 && est.getHours() < 21;
+
+    if (interaction.channel.id === '932029269318721576' && !canRunPanel) return interaction.reply({
+      ephemeral: true,
+      embeds: [ new discord.EmbedBuilder().setDescription(`**You cannot run this right now. Sorry!**`) ]
     });
 
     const row1 = new ActionRowBuilder()
