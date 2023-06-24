@@ -22,7 +22,7 @@ for (const file of fs.readdirSync('./events').filter(file => file.endsWith('.js'
   client.on(file.split('.')[0], (t) => event(client, t));
 };
 
-client.login(system.token);
+client.login((system.useEnv) ? process.env.token : system.token);
 
 require('express')()
 	.get('/', (req, res) => res.status(200).send('Bot alive!'))
