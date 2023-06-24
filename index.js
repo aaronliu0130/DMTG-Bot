@@ -25,5 +25,5 @@ for (const file of fs.readdirSync('./events').filter(file => file.endsWith('.js'
 client.login(system.token);
 
 require('express')()
-	.get('/', (req, res) => res.status(200).send('Bot alive!'));
+	.get('/', (req, res) => res.status(200).send('Bot alive!'))
 	.listen(8080);
