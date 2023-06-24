@@ -1,4 +1,5 @@
 {
   "token": "insert discord bot token",
-  "client": "insert discord bot id"
+  "client": "insert discord bot id",
+  "useEnv": true
 }
