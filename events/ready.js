@@ -34,9 +34,9 @@ module.exports = async (client, msg) => {
 
   const rest = new Discord.REST({
     version: '10'
-  }).setToken(system.token);
+  }).setToken((system.useEnv) ? process.env.token : system.token);
 
-  rest.put(Discord.Routes.applicationCommands(system.client), {
+  rest.put(Discord.Routes.applicationCommands((system.useEnv) ? process.env.client : system.client), {
     body: commands
   }).then((data) => {
     console.log(`\nCommands loaded! (${data.length})`);
