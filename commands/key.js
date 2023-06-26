@@ -27,7 +27,7 @@ module.exports = {
                 .setTitle('Key')
                 .setDescription(`I tried to make the bot as easy as possible. So, I made a simple key for emojis used.\n\n${u} \`-->\` not checked yet.\n${c} \`-->\` checked, is not the trending game\n${i} \`-->\` is the trending game! yay!`)
                 .setFooter({
-                    text: 'thonk#0001 is cool | dm me for questions'
+                    text: '@iamthonk is cool | dm me for questions'
                 })
         ],
         ephemeral: true
