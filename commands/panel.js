@@ -32,7 +32,7 @@ module.exports = {
       embeds: [new discord.EmbedBuilder().setDescription(`**This command is not for this channel.**`)]
     });
 
-    const est = newDate(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}));
+    const est = new Date(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}));
     const canRunPanel = est.getHours() >= 19 && est.getHours() < 21;
 
     if (interaction.channel.id === '932029269318721576' && !canRunPanel) return interaction.reply({
