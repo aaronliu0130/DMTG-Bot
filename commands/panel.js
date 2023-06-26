@@ -75,7 +75,7 @@ module.exports = {
         .setTitle('Trending Game Manager')
         .setDescription(`Use this embed to control the daily trending game.\n\n${buildStatus()}`)
         .setFooter({
-          text: 'thonk#0001 is cool :) | run /key for info'
+          text: '@iamthonk is cool :) | run /key for info'
         })
       ],
       components: [
