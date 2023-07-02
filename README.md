@@ -16,7 +16,7 @@ cd DMTG-Bot
 ```
 6. Install dependencies (was too lazy to make a package.json)
 ```bash
-npm i discord.js
+npm i discord.js express
 ```
 7. Fill in the needed config in system.json. You can try using the command to easily open the file (if it doesn't work, open it manually):
 ```bash
