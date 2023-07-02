@@ -37,7 +37,6 @@ module.exports = async (client, interaction, db) => {
     const command = client.commands.get(interaction.commandName);
     if (command) await command.run(interaction, client, db);
   } else if (interaction.customId === 'reporttrending') {
-
     interaction.reply({
       embeds: [
         new EmbedBuilder()
@@ -53,6 +52,11 @@ module.exports = async (client, interaction, db) => {
       ephemeral: true
     })
   } else if (interaction.customId === 'reporttrending_2') {
+    if (!global.thing) return interaction.reply({
+      content: 'You are using an outdated panel. Please run **/panel** again.',
+      ephemeral: true
+    })
+    
     let game = interaction.component.data.options.filter(a => a.value === interaction.values[0])[0].label;
 
     json[game] = 2;
@@ -85,6 +89,11 @@ module.exports = async (client, interaction, db) => {
       ephemeral: true
     })
   } else if (interaction.customId === 'reportnottrending_2') {
+    if (!global.thing) return interaction.reply({
+      content: 'You are using an outdated panel. Please run **/panel** again.',
+      ephemeral: true
+    })
+    
     let game = interaction.component.data.options.filter(a => a.value === interaction.values[0])[0].label;
 
     if (json[game] !== 1) return interaction.reply({
@@ -148,6 +157,11 @@ module.exports = async (client, interaction, db) => {
       ephemeral: true
     })
   } else if (interaction.customId === 'reset') {
+    if (!global.thing) return interaction.reply({
+      content: 'You are using an outdated panel. Please run **/panel** again.',
+      ephemeral: true
+    })
+
     if (!interaction.member.roles.cache.find(r => r.id === '944031328104480771')) return interaction.reply({
       content: `**No Permission**\nThis option is resticted to Trend Masters only.\nThe panel will automatically reload. This button is to reset all data for the day.`,
       ephemeral: true
@@ -199,6 +213,7 @@ module.exports = async (client, interaction, db) => {
       ]
     });
 
+
     global.thing.followUp({
       embeds: [
         new EmbedBuilder()
@@ -227,6 +242,11 @@ module.exports = async (client, interaction, db) => {
       ephemeral: true
     })
   } else if (interaction.customId === 'undo_2') {
+    if (!global.thing) return interaction.reply({
+      content: 'You are using an outdated panel. Please run **/panel** again.',
+      ephemeral: true
+    })
+    
     let game = interaction.component.data.options.filter(a => a.value === interaction.values[0])[0].label;
 
     if (json[game] == 1) return interaction.reply({
